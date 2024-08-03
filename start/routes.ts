@@ -33,5 +33,4 @@ Route.group(() => {
   Route.get("/employee/:id", "EmployeeController.getEmployee")
   Route.patch("/employee/:id", "EmployeeController.updateEmployee")
   Route.delete("/employee/:id", "EmployeeController.deleteEmployee")
-
 }).middleware(["auth"]);

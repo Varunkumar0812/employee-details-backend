@@ -1,4 +1,3 @@
-import { Hash } from "@adonisjs/core/build/standalone";
 import { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import User from "App/Models/User";
 
@@ -12,15 +11,15 @@ export default class AuthController {
             return token
         }
         catch (err) {
-            response.status(500);
+            response.status(500)
             return err
         }
     }
 
-    public async register({ auth, request, response }: HttpContextContract) {
+    public async register({ auth, request }: HttpContextContract) {
         try {
             const user = await User.create(request.body());
-            const token = auth.login(user)
+            const token = await auth.login(user);
 
             return token;
         }
