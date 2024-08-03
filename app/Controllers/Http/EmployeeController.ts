@@ -15,7 +15,7 @@ export default class EmployeeController {
 
     public async createEmployee({ request }: HttpContextContract) {
         try {
-            const employee = await Employee.createMany(request.body());
+            const employee = await Employee.createMany([request.body()]);
 
             return employee;
         }
